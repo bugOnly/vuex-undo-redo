@@ -11,6 +11,7 @@ export class UndoRedoHistory {
    * 历史记录条数容量
    */
   private readonly _capcity: number;
+  private readonly _module: string;
   /**
    * 历史记录数组
    */
@@ -21,10 +22,12 @@ export class UndoRedoHistory {
   private _currentIndex = -1;
 
   constructor(opts?: {
-    capcity: number
+    module?: string;
+    capcity: number;
   }) {
     // 此处加1的原因是在 init 的同时 push 一条初始记录的 history，同样占用容量
     this._capcity = formatHistoryCapcity(opts?.capcity) + 1;
+    this._module = opts?.module;
   }
   /**
    * 初始化 store
@@ -76,11 +79,15 @@ export class UndoRedoHistory {
     if (isEmpty(prevState)) {
       return;
     }
-    // 替换 report state的历史记录
-    this._store.replaceState(cloneDeep({
+    const snapshoot = cloneDeep(!!this._module ? {
       ...this._store.state,
-      iReport: prevState
-    }));
+      [this._module]: prevState
+    } : {
+      ...this._store.state,
+      ...prevState
+    });
+    // 替换 report state的历史记录
+    this._store.replaceState(snapshoot);
     // 索引回退一格
     this._currentIndex--;
   }
@@ -92,11 +99,14 @@ export class UndoRedoHistory {
     if (isEmpty(nextState)) {
       return;
     }
-
-    this._store.replaceState(cloneDeep({
+    const snapshoot = cloneDeep(!!this._module ? {
       ...this._store.state,
-      iReport: nextState
-    }));
+      [this._module]: nextState
+    } : {
+      ...this._store.state,
+      ...nextState
+    });
+    this._store.replaceState(snapshoot);
     this._currentIndex++;
   }
   /**

@@ -1,6 +1,9 @@
 ## Vuex-Undo-Redo
 
-时移操作(撤回/恢复)插件。
+时移操作(撤回/恢复)插件，支持 Vuex v3。
+
+[![license](https://img.shields.io/github/license/bugOnly/vuex-undo-redo.svg?style=plastic)](https://github.com/bugOnly/vuex-undo-redo/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/@bugonly/vuex-undo-redo.svg?style=plastic)](https://www.npmjs.com/package/@bugonly/vuex-undo-redo)
 
 ### 安装
 ```bash

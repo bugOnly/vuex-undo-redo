@@ -11,7 +11,8 @@
     "tsc": "rm -rf dist/ && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
     "lint": "eslint --fix \"./src/**/*.ts\"",
     "build": "npm run lint && npm run tsc",
-    "test": "cross-env NODE_ENV=testing jest --config=./jest.config.json --testMatch=\"<rootDir>/tests/**/*.test.ts\""
+    "test": "cross-env NODE_ENV=testing jest --config=./jest.config.json --testMatch=\"<rootDir>/tests/**/*.test.ts\"",
+    "prepublish": "npm run build && npm run test"
   },
   "keywords": [
     "vue",
@@ -21,7 +22,7 @@
     "typescript"
   ],
   "author": "zhoujunpeng",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bugOnly/vuex-undo-redo.git"

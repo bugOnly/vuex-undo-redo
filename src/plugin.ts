@@ -5,14 +5,14 @@ import { UndoRedoHistory } from './history';
 import { IUndoRedoPluginInitOption, UndoRedoPlugin } from './types';
 
 export class PluginWrapper {
-  private _plugin:UndoRedoPlugin;
-  private _history: UndoRedoHistory;
+  private readonly _plugin:UndoRedoPlugin;
+  private readonly _history: UndoRedoHistory;
 
   get plugin(){
     return this._plugin;
   }
 
-  public init(opts: IUndoRedoPluginInitOption){
+  constructor(opts: IUndoRedoPluginInitOption){
     this._history = opts.history;
     this._plugin = (store: Store<any>) => {
       const {
@@ -66,5 +66,3 @@ export class PluginWrapper {
     };
   }
 }
-
-export const pluginWrapper = new PluginWrapper();
