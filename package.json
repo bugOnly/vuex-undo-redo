@@ -1,0 +1,53 @@
+{
+  "name": "@bugonly/vuex-undo-redo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "tsc": "rm -rf dist/ && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "lint": "eslint --fix \"./src/**/*.ts\"",
+    "build": "npm run lint && npm run tsc",
+    "test": "cross-env NODE_ENV=testing jest --config=./jest.config.json --testMatch=\"<rootDir>/tests/**/*.test.ts\""
+  },
+  "keywords": [
+    "vue",
+    "vuex",
+    "undo",
+    "redo",
+    "typescript"
+  ],
+  "author": "zhoujunpeng",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bugOnly/vuex-undo-redo.git"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/jest": "^27.0.2",
+    "@types/lodash": "^4.14.173",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-alloy": "^4.3.0",
+    "husky": "^7.0.2",
+    "jest": "^27.2.1",
+    "jest-extended": "^0.11.5",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.4.2",
+    "vue": "^2.6.14",
+    "vuex": "^3.6.2"
+  },
+  "peerDependencies": {
+    "vuex": "^3.6.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

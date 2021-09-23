@@ -1,0 +1,12 @@
+.vscode
+.husky
+.DS_Store
+.eslintrc
+.eslintignore
+*.log
+node_modules
+build
+conmmitlint.config.js
+tsconfig.base.json
+src
+test

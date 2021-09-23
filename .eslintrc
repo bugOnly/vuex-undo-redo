@@ -1,0 +1,44 @@
+{
+  "extends": [
+    "eslint-config-alloy/typescript"
+  ],
+  "rules": {
+    "indent": ["error", 2, {
+      "SwitchCase": 1,
+      "flatTernaryExpressions": true
+    }],
+    "guard-for-in": 0,
+    "no-param-reassign": 0,
+    "no-undefined": 0,
+    "quotes": [1, "single"],
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/consistent-type-assertions": 0,
+    "@typescript-eslint/no-loss-of-precision": 0,
+    "@typescript-eslint/no-duplicate-imports": 0,
+    "@typescript-eslint/no-useless-constructor": 0,
+    "@typescript-eslint/no-require-imports": 0,
+    "@typescript-eslint/no-unused-vars": 1,
+    "@typescript-eslint/no-parameter-properties": 0,
+    "no-unused-vars": 0,
+    "object-curly-spacing": ["error", "always", {
+      "arraysInObjects": false,
+      "objectsInObjects": false
+    }],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "space-in-parens": ["error", "never"],
+    "array-bracket-spacing": ["error", "always", { 
+      "singleValue": false,
+      "objectsInArrays": false,
+      "arraysInArrays": false
+    }],
+    "semi": 1,
+    "eol-last": ["error", "always"]
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  }
+}
